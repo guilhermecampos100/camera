@@ -59,4 +59,11 @@ var app = {
         destinationType: Camera.DestinationType.FILE_URI
       });
     }
+	
+	  callAnothePage: function()
+	 {
+		window.location = "camera.html";
+	 }
+			 
+			 
 };
