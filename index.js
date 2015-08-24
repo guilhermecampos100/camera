@@ -50,6 +50,9 @@ var app = {
     takePicture: function() {
       navigator.camera.getPicture( function( imageURI ) {
         alert( imageURI );
+		var largeImage = document.getElementById('largeImage');
+		largeImage.style.display = 'block';
+		largeImage.src = imageURI;
       },
       function( message ) {
         alert( message );
