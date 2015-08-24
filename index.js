@@ -58,9 +58,9 @@ var app = {
         quality: 50,
         destinationType: Camera.DestinationType.FILE_URI
       });
-    }
+    },
 	
-	  callAnothePage: function()
+	callAnothePage: function()
 	 {
 		window.location = "camera.html";
 	 }
