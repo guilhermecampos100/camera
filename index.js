@@ -91,7 +91,7 @@ var app = {
 		var divteste = document.getElementById('divteste');
 		var divfotos = document.getElementById('divfotos');
 		divteste.innerHTML = s;
-		divfotos.innerHTML = fotos;
+	//	divfotos.innerHTML = fotos;
 	}
 }
 	
