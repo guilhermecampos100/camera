@@ -81,7 +81,9 @@ var app = {
 	if (results.rows.length == 0) {
 	alert("Ainda nao tem foto");
 	} else {
+		alert(results.rows.length + " fotos no bd");
 		var s = "";
+		var fotos = "";
 		for(var i=0; i<results.rows.length; i++) {
 			s += "<li>"+results.rows.item(i).foto + "</li>";
 			fotos += "<img src=" + results.rows.item(i).foto + ">";
