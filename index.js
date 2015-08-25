@@ -86,7 +86,7 @@ var app = {
 		var fotos = "";
 		for(var i=0; i<results.rows.length; i++) {
 			s += "<li>"+results.rows.item(i).foto + "</li>";
-			fotos += "<img src='" + results.rows.item(i).foto + "'>";
+			fotos += "foto: <img src='" + results.rows.item(i).foto + "'><br>";
 		}
 		var divteste = document.getElementById('divteste');
 		var divfotos = document.getElementById('div1');
