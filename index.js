@@ -86,12 +86,13 @@ var app = {
 		var fotos = "";
 		for(var i=0; i<results.rows.length; i++) {
 			s += "<li>"+results.rows.item(i).foto + "</li>";
-			fotos += "<img src=" + results.rows.item(i).foto + ">";
+			fotos += "<img src='" + results.rows.item(i).foto + "'>";
 		}
 		var divteste = document.getElementById('divteste');
 		var divfotos = document.getElementById('div1');
 		divteste.innerHTML = s;
 		divfotos.innerHTML = fotos;
+		divfinal.innerHTML = 'DIV FINAL';
 	}
 }
 	
