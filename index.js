@@ -46,14 +46,14 @@ var app = {
 		});
 		
 		
-/*       },
+      },
       function( message ) {
-        alert( message );
+        alert("erro? " + message );
       },
       {
         quality: 50,
         destinationType: Camera.DestinationType.FILE_URI
-      }); */
+      });
     },
 	
 	callAnothePage: function()
