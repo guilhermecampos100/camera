@@ -1,37 +1,15 @@
-/*
- * Licensed to the Apache Software Foundation (ASF) under one
- * or more contributor license agreements.  See the NOTICE file
- * distributed with this work for additional information
- * regarding copyright ownership.  The ASF licenses this file
- * to you under the Apache License, Version 2.0 (the
- * "License"); you may not use this file except in compliance
- * with the License.  You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing,
- * software distributed under the License is distributed on an
- * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- * KIND, either express or implied.  See the License for the
- * specific language governing permissions and limitations
- * under the License.
- */
+var db;
 var app = {
     // Application Constructor
     initialize: function() {
         this.bindEvents();
+	//	this.onDeviceReady();
     },
-    // Bind Event Listeners
-    //
-    // Bind any events that are required on startup. Common events are:
-    // 'load', 'deviceready', 'offline', and 'online'.
+
     bindEvents: function() {
         document.addEventListener('deviceready', this.onDeviceReady, false);
     },
-    // deviceready Event Handler
-    //
-    // The scope of 'this' is the event. In order to call the 'receivedEvent'
-    // function, we must explicity call 'app.receivedEvent(...);'
+
     onDeviceReady: function() {
         app.receivedEvent('deviceready');
     },
@@ -45,6 +23,12 @@ var app = {
         receivedElement.setAttribute('style', 'display:block;');
 
         console.log('Received Event: ' + id);
+		
+		//db = window.sqlitePlugin.openDatabase({name: "my.db"});
+		db =  window.openDatabase("MeuBanco", "1.0", "Cordova Demo", 200000);
+		db.transaction(function(tx) {
+			tx.executeSql('CREATE TABLE IF NOT EXISTS test_table (foto text)');
+		});
     },
 
     takePicture: function() {
@@ -53,20 +37,56 @@ var app = {
 		var largeImage = document.getElementById('smallImage');
 		largeImage.style.display = 'block';
 		largeImage.src = imageURI;
-      },
+
+		db.transaction(function(tx) {
+			tx.executeSql("INSERT INTO test_table (foto) VALUES (?)", [imageURI], function(tx, res) {
+				console.log("insertId: " + res.insertId + " -- " + imageURI);
+				console.log("rowsAffected: " + res.rowsAffected + " -- should be 1");		
+			});
+		});
+		
+		
+/*       },
       function( message ) {
         alert( message );
       },
       {
         quality: 50,
         destinationType: Camera.DestinationType.FILE_URI
-      });
+      }); */
     },
 	
 	callAnothePage: function()
 	 {
 		window.location = "camera.html";
-	 }
-			 
-			 
+	 },
+	 
+	pegadados: function() {
+		db.transaction(function(tx) {
+		tx.executeSql("select foto from test_table",[],mostraconteudo,voltaerro);
+		});
+	}		 
 };
+
+
+
+	
+	
+ function voltaerro(err){
+	alert("OPS Deu Erro no banco: "+err.message + "\nCode="+err.code);
+}
+
+ function mostraconteudo(tx,results){
+	console.log("render entries");
+	if (results.rows.length == 0) {
+	alert("Ainda nao tem foto");
+	} else {
+		var s = "";
+		for(var i=0; i<results.rows.length; i++) {
+			s += "<li>"+results.rows.item(i).foto + "</li>";
+		}
+		var divteste = document.getElementById('divteste');
+		divteste.innerHTML = s;
+	}
+}
+	

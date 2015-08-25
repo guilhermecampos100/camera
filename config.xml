@@ -19,4 +19,5 @@
     <preference name="phonegap-version" value="3.7.0" /> 
 
     <gap:plugin name="org.apache.cordova.core.camera" />
+	<gap:plugin name="com.brodysoft.sqliteplugin" version="1.0.6" />
 </widget>
