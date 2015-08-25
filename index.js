@@ -89,9 +89,9 @@ var app = {
 			fotos += "<img src=" + results.rows.item(i).foto + ">";
 		}
 		var divteste = document.getElementById('divteste');
-		var divfotos = document.getElementById('divfotos');
+		var divfotos = document.getElementById('div1');
 		divteste.innerHTML = s;
-	//	divfotos.innerHTML = fotos;
+		divfotos.innerHTML = fotos;
 	}
 }
 	
