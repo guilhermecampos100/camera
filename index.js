@@ -48,7 +48,8 @@ var app = {
 		});
 		
 		
-		
+		getImageURI(imageURI);
+		 
 		function getImageURI(imageURI) {
 
 		var gotFileEntry = function(fileEntry) {
