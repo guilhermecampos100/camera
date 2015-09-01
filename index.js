@@ -159,7 +159,7 @@ var app = {
 		var fotos = "";
 		for(var i=0; i<results.rows.length; i++) {
 			s += "<li>"+results.rows.item(i).foto + "</li>";
-			fotos += "foto: <img src='" + results.rows.item(i).foto + "'><br>";
+			fotos += "foto: <img src='" + results.rows.item(i).foto + "' width='100px'><br>";
 		}
 		var divteste = document.getElementById('divteste');
 		var divfotos = document.getElementById('div1');
