@@ -97,7 +97,8 @@ var app = {
       },
       {
         quality: 40,
-        destinationType: Camera.DestinationType.  allowEdit : true,
+        destinationType: Camera.navigator.camera.DestinationType.FILE_URI,
+		allowEdit : true,
 	    encodingType: Camera.EncodingType.JPEG,
 	    targetWidth: 300,
 	    targetHeight: 300
