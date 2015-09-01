@@ -47,6 +47,7 @@ var app = {
 			});
 		});
 		
+		
 		window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, onFSSuccess, onError);
 		
 		function onFSSuccess: function(fileSystem) {

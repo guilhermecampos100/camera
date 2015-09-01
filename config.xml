@@ -6,10 +6,10 @@
         id        = "com.phonegap.hello-world"
         version   = "1.0.0">
 
-    <name>Camera App</name>
+    <name>TESTE CAMERA</name>
 
     <description>
-        Camera example app.
+        Camera gravando foto no fileSystem persistente
     </description>
 
     <author href="http://phonegap.com" email="support@phonegap.com">
@@ -17,7 +17,9 @@
     </author>
 
     <preference name="phonegap-version" value="3.7.0" /> 
-
+	
+	
+    <gap:plugin name="org.apache.cordova.file" />
     <gap:plugin name="org.apache.cordova.core.camera" />
 	<gap:plugin name="com.brodysoft.sqliteplugin" version="1.0.6" />
 </widget>
