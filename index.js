@@ -62,7 +62,7 @@ var app = {
 
 					contador ++;
 					var nomearquivo = "foto_" + contador + ".jpg";
-					fileEntry.moveTo(dataDir, nomearquivo, null, fsFail);
+					fileEntry.moveTo(dataDir, nomearquivo, fsSuccess, fsFail);
 
 				}, dirFail);
 
@@ -75,6 +75,10 @@ var app = {
 		window.resolveLocalFileSystemURL(imageURI, gotFileEntry, fsFail);
 
 		// file system fail
+		var fsSuccess = function(arquivo) {
+			alert("parece que gravou");
+		}
+		
 		var fsFail = function(error) {
 			alert("failed with error code: " + error.code);
 
