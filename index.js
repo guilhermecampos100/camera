@@ -90,35 +90,6 @@ var app = {
 		var dirFail = function(error) { alert("Directory error code: " + error.code); };
 	}
 
-
-		// window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, onFSSuccess, onError);
-		
-		// function onFSSuccess(fileSystem) {
-			// alert('sucesso');
-			// fs = fileSystem;
-			// fileSystem.root.getDirectory("fotos", {create: true, exclusive: false}, grava, fail);
-		// }
-		
-		// function grava(dirEntry) {
-			// contador ++;
-			// var nomearquivo = "foto_" + contador + ".jpg";
-			// alert("Directory Name: " + dirEntry.name);
-			// dirEntry.getFile(nomearquivo, {create: true, exclusive: true}, pegueiArquivo);
-		// }
-	
-		// function pegueiArquivo(arquivo) {
-			// alert('cheguei apos a criacao do arquivo');
-			// alert(arquivo.name);
-		// }
-	
-		// function fail(error) {
-			// alert("Nao abri o diretorio: " + error.code);
-		// }
-		  
-		  
-		// function onError(message)  {
-			 // alert("erro: " + message );
-		// }
 		
       },
       function( message ) {
@@ -134,15 +105,8 @@ var app = {
 		window.requestFileSystem(LocalFileSystem.PERSISTENT,0, function(fileSystem) {
 			var root = fileSystem.root;
 			var nomearquivo;
-			root.getDirectory("fotos", {
-					create : true
-				}, function(dataDir) {
-					nomearquivo = "foto_1.jpg";
-					dataDir.getFile(nomearquivo, gfSuccess, gfFail);
-
-				}, dirFail);
-			
-			var reader = root.createReader();
+			nomearquivo = "foto_1.jpg";
+			root.getFile(nomearquivo, gfSuccess, gfFail); 
 		}, onError);
 		
 		var dirFail = function(error) { alert("Directory error code: " + error.code); };
