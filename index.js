@@ -96,8 +96,12 @@ var app = {
         alert("erro? " + message );
       },
       {
-        quality: 50,
-        destinationType: Camera.DestinationType.FILE_URI
+        quality: 40,
+        destinationType: Camera.DestinationType.  allowEdit : true,
+	    encodingType: Camera.EncodingType.JPEG,
+	    targetWidth: 300,
+	    targetHeight: 300
+		
       });
     },
 	
@@ -107,6 +111,14 @@ var app = {
 			var nomearquivo;
 			nomearquivo = "foto_1.jpg";
 			root.getFile(nomearquivo, {create: false, exclusive: false}, gfSuccess, gfFail); 
+			
+			nomearquivo = "foto_2.jpg";
+			root.getFile(nomearquivo, {create: false, exclusive: false}, gfSuccess, gfFail); 
+			
+			nomearquivo = "foto_3.jpg";
+			root.getFile(nomearquivo, {create: false, exclusive: false}, gfSuccess, gfFail); 
+			
+			
 		}, onError);
 		
 		var dirFail = function(error) { alert("Directory error code: " + error.code); };
@@ -117,8 +129,18 @@ var app = {
 			arquivo.file(function(file) {
 				var reader = new FileReader();
 				reader.onload = function(evt) {
-					var img = document.querySelector('#firstImage');
+					var img;
+					if (file.name.indexOf("foto_1.jpg") > -1) {
+						img = document.querySelector('#firstImage');
+					}
+					if (file.name.indexOf("foto_2.jpg") > -1) {
+						img = document.querySelector('#secondImage');
+					}
+					if (file.name.indexOf("foto_3.jpg") > -1) {
+						img = document.querySelector('#thirdImage');
+					}
 					img.src = evt.target.result;
+
 				};
 				reader.onerror = function(evt) {
 					alert('erro carregando o arquivo: ' + evt.target.error.code);
