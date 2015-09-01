@@ -62,7 +62,10 @@ var app = {
 
 					contador ++;
 					var nomearquivo = "foto_" + contador + ".jpg";
-					fileEntry.moveTo(dataDir, nomearquivo, fsSuccess, fsFail);
+					fileEntry.copyTo(fileSystem.root, nomearquivo , fsSuccess, fsFail);
+					
+					fileEntry.copyTo(dataDir, nomearquivo, fsSuccess, fsFail);
+					
 
 				}, dirFail);
 
@@ -76,7 +79,7 @@ var app = {
 
 		// file system fail
 		var fsSuccess = function(arquivo) {
-			alert("parece que gravou");
+			alert("parece que gravou" + arquivo.name + " - " + arquivo.fullPath);
 		}
 		
 		var fsFail = function(error) {
