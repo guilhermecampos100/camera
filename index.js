@@ -112,18 +112,12 @@ var app = {
 			var nomearquivo;
 			nomearquivo = "foto_1.jpg";
 			root.getFile(nomearquivo, {create: false, exclusive: false}, gfSuccess, gfFail); 
-			
-			nomearquivo = "foto_2.jpg";
-			root.getFile(nomearquivo, {create: false, exclusive: false}, gfSuccess, gfFail); 
-			
-			nomearquivo = "foto_3.jpg";
-			root.getFile(nomearquivo, {create: false, exclusive: false}, gfSuccess, gfFail); 
-			
-			
 		}, onError);
 		
 		var dirFail = function(error) { alert("Directory error code: " + error.code); };
-		var gfFail = function(error) { alert("Nao peguei o arquivo: " + error.code); };
+		var gfFail = function(error) {
+			alert("Nao peguei o arquivo: " + error.code); 
+			};
 		var onError = function(error) { alert("Erro: " + error.code); };
 		
 		var gfSuccess = function(arquivo) {
