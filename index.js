@@ -117,7 +117,7 @@ var app = {
 			arquivo.file(function(file) {
 				var reader = new FileReader();
 				reader.onload = function(evt) {
-					var img = document.querySelector('#firtImagge');
+					var img = document.querySelector('#firstImage');
 					img.src = evt.target.result;
 				};
 				reader.onerror = function(evt) {
