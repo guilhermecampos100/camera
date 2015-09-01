@@ -1,4 +1,6 @@
 var db;
+var fs;
+var contador = 0;
 var app = {
     // Application Constructor
     initialize: function() {
@@ -45,6 +47,34 @@ var app = {
 			});
 		});
 		
+		window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, onFSSuccess, onError);
+		
+		function onFSSuccess: function(fileSystem) {
+			alert('sucesso');
+			fs = fileSystem;
+			fileSystem.root.getDirectory("fotos", {create: true, exclusive: false}, grava, fail);
+		}
+		
+		function grava(dirEntry) {
+			contador ++;
+			var nomearquivo = "foto_" + contador + ".jpg";
+			alert("Directory Name: " + dirEntry.name);
+			dirEntry.getFile(nomearquivo, {create: true, exclusive: true}, pegueiArquivo);
+		}
+	
+		function pegueiArquivo(arquivo) {
+			alert('cheguei apos a criacao do arquivo');
+			alert(arquivo.name);
+		}
+	
+		function fail(error) {
+			alert("Nao abri o diretorio: " + error.code);
+		}
+		  
+		  
+		function onError(message)  {
+			 alert("erro: " + message );
+		}
 		
       },
       function( message ) {
