@@ -72,7 +72,7 @@ var app = {
 					fsFail);
 		};
 		// resolve file system for image
-		window.resolveLocalFileSystemURI(imageURI, gotFileEntry, fsFail);
+		window.resolveLocalFileSystemURL(imageURI, gotFileEntry, fsFail);
 
 		// file system fail
 		var fsFail = function(error) {
