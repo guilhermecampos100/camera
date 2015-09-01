@@ -50,7 +50,7 @@ var app = {
 		
 		window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, onFSSuccess, onError);
 		
-		function onFSSuccess: function(fileSystem) {
+		function onFSSuccess(fileSystem) {
 			alert('sucesso');
 			fs = fileSystem;
 			fileSystem.root.getDirectory("fotos", {create: true, exclusive: false}, grava, fail);
