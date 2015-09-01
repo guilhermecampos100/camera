@@ -84,10 +84,7 @@ var app = {
 
 		};
 
-		var dirFail = function(error) {
-			alert("Directory error code: " + error.code);
-
-		};
+		var dirFail = function(error) { alert("Directory error code: " + error.code); };
 	}
 
 
@@ -129,6 +126,41 @@ var app = {
         destinationType: Camera.DestinationType.FILE_URI
       });
     },
+	
+	lefotos: function() {
+		window.requestFileSystem(LocalFileSystem.PERSISTENT,0, function(fileSystem) {
+			var root = fileSystem.root;
+			var nomearquivo;
+			root.getDirectory("fotos", {
+					create : true
+				}, function(dataDir) {
+					nomearquivo = "foto_1.jpg";
+					dataDir.getFile(nomearquivo, gfSuccess, gfFail);
+
+				}, dirFail);
+			
+			var reader = root.createReader();
+		}, onError);
+		
+		var dirFail = function(error) { alert("Directory error code: " + error.code); };
+		var gfFail = function(error) { alert("Nao peguei o arquivo: " + error.code); };
+		var onError = function(error) { alert("Erro: " + error.code); };
+		
+		var dfSuccess = function(arquivo) {
+			arquivo.file(function(file) {
+				var reader = new FileReader();
+				reader.onload = function(evt) {
+					var img = document.querySelector('#firtImagge');
+					img.src = evt.target.result;
+				};
+				reader.onerror = function(evt) {
+					alert('erro carregando o arquivo: ' + evt.target.error.code);
+				};
+				reader.readAsDataURL(file);
+			}, onError);
+		}
+	},
+	
 	
 	callAnothePage: function()
 	 {
