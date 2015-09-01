@@ -146,7 +146,7 @@ var app = {
 		var gfFail = function(error) { alert("Nao peguei o arquivo: " + error.code); };
 		var onError = function(error) { alert("Erro: " + error.code); };
 		
-		var dfSuccess = function(arquivo) {
+		var gfSuccess = function(arquivo) {
 			arquivo.file(function(file) {
 				var reader = new FileReader();
 				reader.onload = function(evt) {
