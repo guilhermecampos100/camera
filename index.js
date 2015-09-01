@@ -106,7 +106,7 @@ var app = {
 			var root = fileSystem.root;
 			var nomearquivo;
 			nomearquivo = "foto_1.jpg";
-			root.getFile(nomearquivo, gfSuccess, gfFail); 
+			root.getFile(nomearquivo, {create: false, exclusive: false}, gfSuccess, gfFail); 
 		}, onError);
 		
 		var dirFail = function(error) { alert("Directory error code: " + error.code); };
