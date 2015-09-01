@@ -3,15 +3,16 @@
 <!-- config.xml reference: https://build.phonegap.com/docs/config-xml -->
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
-        id        = "com.phonegap.hello-world"
-        version   = "1.0.0">
+        xmlns:android="http://schemas.android.com/apk/res/android"
+		id="me.app.id" 
+		version="1.0.0">
 
 	<gap:config-file platform="android" parent="/manifest">
      <application android:debuggable="true" />
 	</gap:config-file>
 
 
-    <name>TESTE CAMERA + 1.14</name>
+    <name>TESTE CAMERA + 1.15</name>
 
     <description>
         Camera gravando foto no fileSystem persistente
