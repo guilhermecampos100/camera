@@ -18,7 +18,8 @@ var app = {
 		var latitude = window.localStorage.getItem("latitude");
 		var longitude = window.localStorage.getItem("longitude");
 		if (latitude != undefined ) {
-				document.getElementById('divgps').innerHtml  = "Latitude: " + latitude + "<br>Longitude: " + longitude + "<br>"
+				var texto = "Latitude: " + latitude + "<br>Longitude: " + longitude + "<br>";
+				document.getElementById('divgps').innerHtml  = texto;
 		}
 		document.getElementById('divteste').innerHTML = 'alo alo teste';
     },
@@ -187,7 +188,7 @@ var app = {
 				var latitude = window.localStorage.getItem("latitude");
 				var longitude = window.localStorage.getItem("longitude");
 				if (latitude != undefined ) {
-					document.getElementById('divgps').innerHtml  = "<h2>latitude: " + latitude + "<br>Longitude: " + longitude + "</h2><br>"
+					document.getElementById('divgps').innerHtml  = "<h2>latitude: " + latitude + "<br>Longitude: " + longitude + "</h2><br>";
 				}		  
 		};
 
