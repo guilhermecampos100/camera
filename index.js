@@ -209,6 +209,7 @@ var app = {
 		var nomearquivo;
 		nomearquivo = "foto_1.jpg";
 		root.getFile(nomearquivo, {create: false}, gfSuccess, gfFail); 
+		}, onError);
 		
 		function gfSuccess(fileEntry) {
 			var imageURI = fileEntry.toURL();
@@ -218,6 +219,11 @@ var app = {
 		function gfFail(error) {
 			alert("Nao peguei o arquivo: " + error.code); 
 		};
+		
+		function onError(error) {
+			alert('code: '    + error.code    + '\n' +
+				  'message: ' + error.message + '\n');
+		}
 	}
 	
 };
