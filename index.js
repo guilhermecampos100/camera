@@ -112,6 +112,8 @@ var app = {
 			var nomearquivo;
 			nomearquivo = "foto_1.jpg";
 			root.getFile(nomearquivo, {create: false}, gfSuccess, gfFail); 
+			nomearquivo = "foto_2.jpg";
+			root.getFile(nomearquivo, {create: false}, gfSuccess, gfFail); 
 		}, onError);
 		
 		function gfFail(error) {
