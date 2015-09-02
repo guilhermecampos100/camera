@@ -110,7 +110,8 @@ var app = {
         destinationType: Camera.DestinationType.FILE_URI,
 		allowEdit : true,
 	    encodingType: Camera.EncodingType.JPEG,
-	    targetWidth: 1024
+	    targetWidth: 800,
+		targetHeight: 600
 		
       });
     },
