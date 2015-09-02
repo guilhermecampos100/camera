@@ -79,7 +79,7 @@ var app = {
 
 		// file system fail
 		var fsSuccess = function(arquivo) {
-			alert("parece que gravou" + arquivo.name + " - " + arquivo.fullPath);
+			alert("parece que gravou " + arquivo.name + " - " + arquivo.fullPath);
 		}
 		
 		var fsFail = function(error) {
@@ -114,6 +114,8 @@ var app = {
 			root.getFile(nomearquivo, {create: false}, gfSuccess, gfFail); 
 			nomearquivo = "foto_2.jpg";
 			root.getFile(nomearquivo, {create: false}, gfSuccess, gfFail); 
+			nomearquivo = "foto_3.jpg";
+			root.getFile(nomearquivo, {create: false}, gfSuccess, gfFail); 			
 		}, onError);
 		
 		function gfFail(error) {
