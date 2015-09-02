@@ -21,7 +21,8 @@ var app = {
 				var texto = "Latitude: " + latitude + "<br>Longitude: " + longitude + "<br>";
 				document.getElementById('divgps').innerHtml  = texto;
 		}
-		document.getElementById('divteste').innerHTML = 'alo alo teste';
+		var texto = "Latitude: " + latitude + " Longitude: " + longitude;
+		document.getElementById('divteste').innerHTML = texto;
     },
 	
     // Update DOM on a Received Event
