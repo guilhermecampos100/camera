@@ -106,12 +106,11 @@ var app = {
         alert("erro? " + message );
       },
       {
-        quality: 40,
+        quality: 50,
         destinationType: Camera.DestinationType.FILE_URI,
 		allowEdit : true,
 	    encodingType: Camera.EncodingType.JPEG,
-	    targetWidth: 300,
-	    targetHeight: 300
+	    targetWidth: 1024
 		
       });
     },
@@ -214,7 +213,7 @@ var app = {
 		function gfSuccess(fileEntry) {
 			var imageURI = fileEntry.toURL();
 			uploadPhoto(imageURI);
-		}
+		};
 		
 		function gfFail(error) {
 			alert("Nao peguei o arquivo: " + error.code); 
@@ -223,7 +222,7 @@ var app = {
 		function onError(error) {
 			alert('code: '    + error.code    + '\n' +
 				  'message: ' + error.message + '\n');
-		}
+		};
 	}
 	
 };
