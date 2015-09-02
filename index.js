@@ -20,6 +20,7 @@ var app = {
 		if (latitude != undefined ) {
 				document.getElementById('divgps').innerHtml  = "Latitude: " + latitude + "<br>Longitude: " + longitude + "<br>"
 		}
+		document.getElementById('divteste').innerHTML = 'alo alo teste';
     },
 	
     // Update DOM on a Received Event
