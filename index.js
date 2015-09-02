@@ -108,7 +108,6 @@ var app = {
       {
         quality: 50,
         destinationType: Camera.DestinationType.FILE_URI,
-		allowEdit : true,
 	    encodingType: Camera.EncodingType.JPEG,
 	    targetWidth: 800,
 		targetHeight: 600
