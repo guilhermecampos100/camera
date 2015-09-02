@@ -201,11 +201,54 @@ var app = {
 		}
 
 		navigator.geolocation.getCurrentPosition(onSuccess, onError);
+	},
+	
+	sobefoto: function() {
+		window.requestFileSystem(LocalFileSystem.PERSISTENT,0, function(fileSystem) {
+		var root = fileSystem.root;
+		var nomearquivo;
+		nomearquivo = "foto_1.jpg";
+		root.getFile(nomearquivo, {create: false}, gfSuccess, gfFail); 
+		
+		function gfSuccess(fileEntry) {
+			var imageURI = fileEntry.toURL();
+			uploadPhoto(imageURI);
+		}
+		
+		function gfFail(error) {
+			alert("Nao peguei o arquivo: " + error.code); 
+		};
 	}
 	
 };
 
+function uploadPhoto(imageURI) {
+	var options = new FileUploadOptions();
+	options.fileKey="file";
+	options.fileName=imageURI.substr(imageURI.lastIndexOf('/')+1);
+	options.mimeType="image/jpeg";
 
+	var params = new Object();
+	params.value1 = "test";
+	params.value2 = "param";
+
+	options.params = params;
+	options.chunkedMode = false;
+
+	var ft = new FileTransfer();
+	ft.upload(imageURI, "http://chamagar.com/dashboard/painel/upload.asp", win, fail, options);
+}
+
+function win(r) {
+	alert("Code = " + r.responseCode);
+	alert("Response = " + r.response);
+	alert("Sent = " + r.bytesSent);
+	alert(r.response);
+}
+
+function fail(error) {
+	alert("An error has occurred: Code = " = error.code);
+}
 
 	
 	
