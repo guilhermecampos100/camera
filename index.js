@@ -111,17 +111,17 @@ var app = {
 			var root = fileSystem.root;
 			var nomearquivo;
 			nomearquivo = "foto_1.jpg";
-			root.getFile(nomearquivo, {create: true, exclusive: false}, gfSuccess, gfFail); 
+			root.getFile(nomearquivo, {create: false}, gfSuccess, gfFail); 
 		}, onError);
 		
-		var dirFail = function(error) { alert("Directory error code: " + error.code); };
-		var gfFail = function(error) {
+		function gfFail(error) {
 			alert("Nao peguei o arquivo: " + error.code); 
 			};
-		var onError = function(error) { alert("Erro: " + error.code); };
+			
+		function onError(error) { alert("Erro: " + error.code); };
 		
-		var gfSuccess = function(arquivo) {
-			arquivo.file(function(file) {
+		function gfSuccess(fileEntry) {
+			fileEntry.file(function(file) {
 				var reader = new FileReader();
 				reader.onload = function(evt) {
 					var img;
