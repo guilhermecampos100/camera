@@ -12,7 +12,7 @@
 	</gap:config-file>
 
 
-    <name>CAMERA + 1.30</name>
+    <name>CAMERA + 1.40</name>
 
     <description>
         Camera gravando foto no fileSystem persistente
@@ -23,8 +23,7 @@
     </author>
 
     <preference name="phonegap-version" value="3.7.0" /> 
-	
-	
+
     <gap:plugin name="org.apache.cordova.file" />
     <gap:plugin name="org.apache.cordova.core.camera" />
 	<gap:plugin name="com.brodysoft.sqliteplugin" version="1.0.6" />

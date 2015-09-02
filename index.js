@@ -14,7 +14,16 @@ var app = {
 
     onDeviceReady: function() {
         app.receivedEvent('deviceready');
+		var divgps = document.getElementById('divgps');
+		var latitude = window.localStorage.getItem("latitude");
+		var longitude = window.localStorage.getItem("longitude");
+		if (latitude != undefined ) {
+			if (divgps != undefined) {
+				divgps.innerHtml  = '<h2>latitude: ' + latitude + "<br>Longitude: " + longitude + "</h2><br>"
+			}
+		}
     },
+	
     // Update DOM on a Received Event
     receivedEvent: function(id) {
         var parentElement = document.getElementById(id);
@@ -171,6 +180,21 @@ var app = {
 				  'Heading: '           + position.coords.heading           + '\n' +
 				  'Speed: '             + position.coords.speed             + '\n' +
 				  'Timestamp: '         + position.timestamp                + '\n');
+				  
+				  window.localStorage.setItem("latitude", position.coords.latitude  );
+				  window.localStorage.setItem("longitude", position.coords.longitude  );
+				  
+				var divgps = document.getElementById('divgps');
+				var latitude = window.localStorage.getItem("latitude");
+				var longitude = window.localStorage.getItem("longitude");
+				if (latitude != undefined ) {
+					if (divgps != undefined) {
+						divgps.innerHtml  = '<h2>latitude: ' + latitude + "<br>Longitude: " + longitude + "</h2><br>"
+					}
+				}
+		
+		
+				  
 		};
 
 		// onError Callback receives a PositionError object
