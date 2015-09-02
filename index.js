@@ -187,11 +187,7 @@ var app = {
 				var longitude = window.localStorage.getItem("longitude");
 				if (latitude != undefined ) {
 					document.getElementById('divgps').innerHtml  = "<h2>latitude: " + latitude + "<br>Longitude: " + longitude + "</h2><br>"
-					}
-				}
-		
-		
-				  
+				}		  
 		};
 
 		// onError Callback receives a PositionError object
