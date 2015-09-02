@@ -19,7 +19,6 @@ var app = {
 		var longitude = window.localStorage.getItem("longitude");
 		if (latitude != undefined ) {
 				document.getElementById('divgps').innerHtml  = "Latitude: " + latitude + "<br>Longitude: " + longitude + "<br>"
-			}
 		}
     },
 	
